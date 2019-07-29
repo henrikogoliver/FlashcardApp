@@ -1,41 +1,64 @@
-﻿using FlashcardApp.API.Models;
+﻿using FlashcardAPI.Data;
+using FlashcardAPI.Data.Repositories.FlashcardRepo;
+using FlashcardApp.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace FlashcardAPI.Controllers
 {
     public class FlashcardsController : ApiController
     {
-        static List<Flashcard> flashcards = new List<Flashcard>()
-        {
-            new Flashcard {Id = 1, Question="Test Question 1", Answer="Test Answer 1"},
-            new Flashcard {Id = 2, Question="Test Question 2", Answer="Test Answer 2"},
-            new Flashcard {Id = 3, Question="Test Question 3", Answer="Test Answer 3"},
-        };
+        private FlashcardRepo _repo = new FlashcardRepo();
 
-        public IEnumerable<Flashcard> GetFlashcards()
+        [HttpGet]
+        [Route("api/flashcards/{cardsetId=0}")]
+        public async Task<IHttpActionResult> GetFlashcards(int cardsetId)
         {
-            return flashcards;
+            if (cardsetId == 0)
+            {
+                return BadRequest("Invalid cardset Id");
+            }
+
+            var flashcards = await _repo.GetFlashcards(cardsetId);
+
+            if (flashcards == null || flashcards.Count() == 0)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(flashcards);
+            }
         }
 
-        public IHttpActionResult GetFlashcard(int id)
+        [HttpGet]
+        [Route("api/flashcard/{flashcardId=0}")]
+        public async Task<IHttpActionResult> GetFlashcard(int flashcardId)
         {
-            return Ok(flashcards.Find(f => f.Id == id));
+            if (flashcardId == 0)
+            {
+                return BadRequest("Invalid flashcard Id");
+            }
+
+            return Ok(await _repo.GetFlashcard(flashcardId));
         }
 
+        [HttpPost]
         public IHttpActionResult PostFlashcard([FromBody] Flashcard flashcardToAdd)
         {
             if (flashcardToAdd == null)
             {
                 return BadRequest("Not a valid flashcard");
             }
-            Console.WriteLine(flashcardToAdd.Answer);
-            flashcards.Add(flashcardToAdd);
-            return Ok();
+
+            _repo.AddFlashcard(flashcardToAdd);
+
+            return StatusCode(HttpStatusCode.Created);
         }
     }
 }
