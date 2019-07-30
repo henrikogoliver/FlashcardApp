@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlashcardAPI.Data.Repositories
 {
-    interface IFlashcardRepo
+    public interface IFlashcardRepo
     {
         void AddFlashcard(Flashcard flashcard);
         void DeleteFlashcard(Flashcard flashcard);

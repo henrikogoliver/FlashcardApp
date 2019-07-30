@@ -1,5 +1,5 @@
 ﻿using FlashcardAPI.Data;
-using FlashcardAPI.Data.Repositories.FlashcardRepo;
+using FlashcardAPI.Data.Repositories;
 using FlashcardApp.API.Models;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,12 @@ namespace FlashcardAPI.Controllers
 {
     public class FlashcardsController : ApiController
     {
-        private FlashcardRepo _repo = new FlashcardRepo();
+        private IFlashcardRepo _flashcardRepo;
+
+        public FlashcardsController(IFlashcardRepo flashcardRepo)
+        {
+            _flashcardRepo = flashcardRepo;
+        }
 
         [HttpGet]
         [Route("api/flashcards/{cardsetId=0}")]
@@ -24,7 +29,7 @@ namespace FlashcardAPI.Controllers
                 return BadRequest("Invalid cardset Id");
             }
 
-            var flashcards = await _repo.GetFlashcards(cardsetId);
+            var flashcards = await _flashcardRepo.GetFlashcards(cardsetId);
 
             if (flashcards == null || flashcards.Count() == 0)
             {
@@ -45,7 +50,7 @@ namespace FlashcardAPI.Controllers
                 return BadRequest("Invalid flashcard Id");
             }
 
-            return Ok(await _repo.GetFlashcard(flashcardId));
+            return Ok(await _flashcardRepo.GetFlashcard(flashcardId));
         }
 
         [HttpPost]
@@ -56,7 +61,7 @@ namespace FlashcardAPI.Controllers
                 return BadRequest("Not a valid flashcard");
             }
 
-            _repo.AddFlashcard(flashcardToAdd);
+            _flashcardRepo.AddFlashcard(flashcardToAdd);
 
             return StatusCode(HttpStatusCode.Created);
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using FlashcardApp.API.Models;
 
-namespace FlashcardAPI.Data.Repositories.FlashcardRepo
+namespace FlashcardAPI.Data.Repositories
 {
     public class FlashcardRepo : IFlashcardRepo
     {
