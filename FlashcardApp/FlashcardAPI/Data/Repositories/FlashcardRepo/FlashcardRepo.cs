@@ -15,13 +15,19 @@ namespace FlashcardAPI.Data.Repositories
         public void AddFlashcard(Flashcard flashcard)
         {
             _context.Flashcards.Add(flashcard);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public void DeleteFlashcard(Flashcard flashcard)
+        public bool DeleteFlashcard(int flashcardId)
         {
-            _context.Flashcards.Remove(flashcard);
+            var flashcardToRemove = _context.Flashcards.SingleOrDefault(f => f.Id == flashcardId);
+            if (flashcardToRemove == null)
+            {
+                return false;
+            }
+            _context.Flashcards.Remove(flashcardToRemove);
             _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<Flashcard> GetFlashcard(int flashcardId)

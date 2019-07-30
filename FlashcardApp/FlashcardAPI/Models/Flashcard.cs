@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FlashcardApp.API.Models
 {
@@ -11,6 +8,7 @@ namespace FlashcardApp.API.Models
         public string Question { get; set; }
         public string Answer { get; set; }
         public int CurrentStatus { get; set; }
+        [Required]
         public int CardsetId { get; set; }
         public Cardset Cardset { get; set; }
     }

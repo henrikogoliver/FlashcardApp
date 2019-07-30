@@ -1,5 +1,6 @@
 using FlashcardAPI.Data;
 using FlashcardAPI.Data.Repositories;
+using FlashcardAPI.Data.Repositories.CardsetRepo;
 using System.Data.Entity;
 using System.Web.Http;
 using Unity;
@@ -15,6 +16,7 @@ namespace FlashcardAPI
 			var container = new UnityContainer();
 
             container.RegisterType<IFlashcardRepo, FlashcardRepo>();
+            container.RegisterType<ICardsetRepo, CardsetRepo>();
 
             //container.RegisterType<DbContext, FlashcardDbContext>(new PerThreadLifetimeManager());
             

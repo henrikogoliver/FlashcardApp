@@ -219,10 +219,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CardsetController.cs" />
     <Compile Include="Controllers\FlashcardsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\FlashcardDbContext.cs" />
+    <Compile Include="Data\Repositories\CardsetRepo\CardsetRepo.cs" />
+    <Compile Include="Data\Repositories\CardsetRepo\ICardsetRepo.cs" />
     <Compile Include="Data\Repositories\FlashcardRepo\FlashcardRepo.cs" />
     <Compile Include="Data\Repositories\FlashcardRepo\IFlashcardRepo.cs" />
     <Compile Include="Global.asax.cs">
@@ -231,6 +234,22 @@
     <Compile Include="Migrations\201907290804158_Initial.cs" />
     <Compile Include="Migrations\201907290804158_Initial.Designer.cs">
       <DependentUpon>201907290804158_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907300820434_Model data annotations.cs" />
+    <Compile Include="Migrations\201907300820434_Model data annotations.Designer.cs">
+      <DependentUpon>201907300820434_Model data annotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907300835396_UserIdrequiredremoved.cs" />
+    <Compile Include="Migrations\201907300835396_UserIdrequiredremoved.Designer.cs">
+      <DependentUpon>201907300835396_UserIdrequiredremoved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907300841255_RequiredUserIdCardset.cs" />
+    <Compile Include="Migrations\201907300841255_RequiredUserIdCardset.Designer.cs">
+      <DependentUpon>201907300841255_RequiredUserIdCardset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907300847035_FlashcardModelAnnotation.cs" />
+    <Compile Include="Migrations\201907300847035_FlashcardModelAnnotation.Designer.cs">
+      <DependentUpon>201907300847035_FlashcardModelAnnotation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -336,6 +355,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201907290804158_Initial.resx">
       <DependentUpon>201907290804158_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907300820434_Model data annotations.resx">
+      <DependentUpon>201907300820434_Model data annotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907300835396_UserIdrequiredremoved.resx">
+      <DependentUpon>201907300835396_UserIdrequiredremoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907300841255_RequiredUserIdCardset.resx">
+      <DependentUpon>201907300841255_RequiredUserIdCardset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907300847035_FlashcardModelAnnotation.resx">
+      <DependentUpon>201907300847035_FlashcardModelAnnotation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

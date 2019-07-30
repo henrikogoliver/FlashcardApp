@@ -1,8 +1,5 @@
-﻿using FlashcardAPI.Data;
-using FlashcardAPI.Data.Repositories;
+﻿using FlashcardAPI.Data.Repositories;
 using FlashcardApp.API.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,6 +8,7 @@ using System.Web.Http;
 
 namespace FlashcardAPI.Controllers
 {
+    [RoutePrefix("api/flashcards")]
     public class FlashcardsController : ApiController
     {
         private IFlashcardRepo _flashcardRepo;
@@ -21,7 +19,7 @@ namespace FlashcardAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/flashcards/{cardsetId=0}")]
+        [Route("{cardsetId=0}")]
         public async Task<IHttpActionResult> GetFlashcards(int cardsetId)
         {
             if (cardsetId == 0)
@@ -42,7 +40,7 @@ namespace FlashcardAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/flashcard/{flashcardId=0}")]
+        [Route("single/{flashcardId=0}")]
         public async Task<IHttpActionResult> GetFlashcard(int flashcardId)
         {
             if (flashcardId == 0)
@@ -50,20 +48,49 @@ namespace FlashcardAPI.Controllers
                 return BadRequest("Invalid flashcard Id");
             }
 
-            return Ok(await _flashcardRepo.GetFlashcard(flashcardId));
+            var flashcard = await _flashcardRepo.GetFlashcard(flashcardId);
+
+            if (flashcard == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(flashcard);
         }
 
         [HttpPost]
-        public IHttpActionResult PostFlashcard([FromBody] Flashcard flashcardToAdd)
+        [Route]
+        public HttpResponseMessage PostFlashcard([FromBody] Flashcard flashcardToAdd)
         {
-            if (flashcardToAdd == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Not a valid flashcard");
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
             _flashcardRepo.AddFlashcard(flashcardToAdd);
 
-            return StatusCode(HttpStatusCode.Created);
+            return new HttpResponseMessage(HttpStatusCode.Created);
+        }
+
+        [HttpDelete]
+        [Route("{flashcardId=0}")]
+        public IHttpActionResult DeleteFlashcard(int flashcardId)
+        {
+            if (flashcardId == 0)
+            {
+                return BadRequest("Not a valid flashcardId");
+            }
+
+            var flashcardRemoved = _flashcardRepo.DeleteFlashcard(flashcardId);
+
+            if (flashcardRemoved)
+            {
+                return Ok("Flashcard removed");
+            }
+            else
+            {
+                return BadRequest("Flashcard does not exist");
+            }
         }
     }
 }

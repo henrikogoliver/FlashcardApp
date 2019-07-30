@@ -10,7 +10,7 @@ namespace FlashcardAPI.Data.Repositories
     public interface IFlashcardRepo
     {
         void AddFlashcard(Flashcard flashcard);
-        void DeleteFlashcard(Flashcard flashcard);
+        bool DeleteFlashcard(int flashcardId);
         Task<Flashcard> GetFlashcard(int flashcardId);
         Task<IEnumerable<Flashcard>> GetFlashcards(int cardSetId);
         //TODO - Update methods
