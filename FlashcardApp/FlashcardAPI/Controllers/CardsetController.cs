@@ -1,8 +1,6 @@
 ﻿using FlashcardAPI.Data.Repositories.CardsetRepo;
 using FlashcardApp.API.Models;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -25,7 +23,7 @@ namespace FlashcardAPI.Controllers
         [Route]
         public async Task<IHttpActionResult> GetCardsets()
         {
-            var userId = RequestContext.Principal.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();
 
             if (userId == null)
             {
@@ -67,7 +65,7 @@ namespace FlashcardAPI.Controllers
         [Route]
         public HttpResponseMessage PostCardset([FromBody] Cardset cardsetToAdd)
         {
-            var userId = RequestContext.Principal.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();
 
             if (userId == null)
             {

@@ -13,6 +13,5 @@ namespace FlashcardAPI.Data
         public DbSet<Flashcard> Flashcards { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<History> Histories { get; set; }
-
     }
 }

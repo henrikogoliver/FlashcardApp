@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -120,6 +123,9 @@
     <Reference Include="Unity.WebApi, Version=5.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.WebAPI.5.4.0\lib\net45\Unity.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -188,6 +194,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
@@ -250,6 +257,14 @@
     <Compile Include="Migrations\201907300847035_FlashcardModelAnnotation.cs" />
     <Compile Include="Migrations\201907300847035_FlashcardModelAnnotation.Designer.cs">
       <DependentUpon>201907300847035_FlashcardModelAnnotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907310756437_parentCardsetId.cs" />
+    <Compile Include="Migrations\201907310756437_parentCardsetId.Designer.cs">
+      <DependentUpon>201907310756437_parentCardsetId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907310801483_NavigationPropertyCardset.cs" />
+    <Compile Include="Migrations\201907310801483_NavigationPropertyCardset.Designer.cs">
+      <DependentUpon>201907310801483_NavigationPropertyCardset.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -367,6 +382,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907300847035_FlashcardModelAnnotation.resx">
       <DependentUpon>201907300847035_FlashcardModelAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907310756437_parentCardsetId.resx">
+      <DependentUpon>201907310756437_parentCardsetId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907310801483_NavigationPropertyCardset.resx">
+      <DependentUpon>201907310801483_NavigationPropertyCardset.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

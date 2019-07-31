@@ -10,7 +10,12 @@ namespace FlashcardAPI.Data.Repositories
 {
     public class FlashcardRepo : IFlashcardRepo
     {
-        private FlashcardDbContext _context = new FlashcardDbContext();
+        private FlashcardDbContext _context;
+
+        public FlashcardRepo(FlashcardDbContext context)
+        {
+            _context = context;
+        }
 
         public void AddFlashcard(Flashcard flashcard)
         {

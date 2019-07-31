@@ -10,7 +10,12 @@ namespace FlashcardAPI.Data.Repositories.CardsetRepo
 {
     public class CardsetRepo : ICardsetRepo
     {
-        private FlashcardDbContext _context = new FlashcardDbContext();
+        private FlashcardDbContext _context;
+
+        public CardsetRepo(FlashcardDbContext context)
+        {
+            _context = context;
+        }
 
         public void AddCardset(Cardset cardset)
         {

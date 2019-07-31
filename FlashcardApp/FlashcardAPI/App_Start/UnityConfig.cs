@@ -17,8 +17,6 @@ namespace FlashcardAPI
 
             container.RegisterType<IFlashcardRepo, FlashcardRepo>();
             container.RegisterType<ICardsetRepo, CardsetRepo>();
-
-            //container.RegisterType<DbContext, FlashcardDbContext>(new PerThreadLifetimeManager());
             
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
