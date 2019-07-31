@@ -7,13 +7,13 @@ namespace FlashcardAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class NavigationPropertyCardset : IMigrationMetadata
+    public sealed partial class CardsetICollection : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NavigationPropertyCardset));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CardsetICollection));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907310801483_NavigationPropertyCardset"; }
+            get { return "201907310823340_CardsetICollection"; }
         }
         
         string IMigrationMetadata.Source

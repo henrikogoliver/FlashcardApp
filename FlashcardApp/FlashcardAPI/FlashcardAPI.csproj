@@ -262,9 +262,13 @@
     <Compile Include="Migrations\201907310756437_parentCardsetId.Designer.cs">
       <DependentUpon>201907310756437_parentCardsetId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907310801483_NavigationPropertyCardset.cs" />
-    <Compile Include="Migrations\201907310801483_NavigationPropertyCardset.Designer.cs">
-      <DependentUpon>201907310801483_NavigationPropertyCardset.cs</DependentUpon>
+    <Compile Include="Migrations\201907310823340_CardsetICollection.cs" />
+    <Compile Include="Migrations\201907310823340_CardsetICollection.Designer.cs">
+      <DependentUpon>201907310823340_CardsetICollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907310844179_NullableParentCardsetId.cs" />
+    <Compile Include="Migrations\201907310844179_NullableParentCardsetId.Designer.cs">
+      <DependentUpon>201907310844179_NullableParentCardsetId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -386,8 +390,11 @@
     <EmbeddedResource Include="Migrations\201907310756437_parentCardsetId.resx">
       <DependentUpon>201907310756437_parentCardsetId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907310801483_NavigationPropertyCardset.resx">
-      <DependentUpon>201907310801483_NavigationPropertyCardset.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907310823340_CardsetICollection.resx">
+      <DependentUpon>201907310823340_CardsetICollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907310844179_NullableParentCardsetId.resx">
+      <DependentUpon>201907310844179_NullableParentCardsetId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

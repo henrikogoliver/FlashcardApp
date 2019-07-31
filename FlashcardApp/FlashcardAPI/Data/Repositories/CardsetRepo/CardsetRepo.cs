@@ -31,7 +31,7 @@ namespace FlashcardAPI.Data.Repositories.CardsetRepo
                 return false;
             }
             _context.Cardsets.Remove(cardsetToRemove);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
             return true;
         }
 
