@@ -10,12 +10,12 @@ namespace FlashcardAPI.Data
         public DbSet<Status> Statuses { get; set; }
         public DbSet<History> Histories { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Cardset>()
-        //        .HasOptional(c => c.ParentCardsetId)
-        //        .WithMany()
-        //        .HasForeignKey(c => c.ParentCardsetId);
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cardset>()
+                .HasOptional(c => c.ParentCardset)
+                .WithMany()
+                .HasForeignKey(c => c.ParentCardsetId);
+        }
     }
 }

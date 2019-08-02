@@ -238,37 +238,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907290804158_Initial.cs" />
-    <Compile Include="Migrations\201907290804158_Initial.Designer.cs">
-      <DependentUpon>201907290804158_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907300820434_Model data annotations.cs" />
-    <Compile Include="Migrations\201907300820434_Model data annotations.Designer.cs">
-      <DependentUpon>201907300820434_Model data annotations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907300835396_UserIdrequiredremoved.cs" />
-    <Compile Include="Migrations\201907300835396_UserIdrequiredremoved.Designer.cs">
-      <DependentUpon>201907300835396_UserIdrequiredremoved.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907300841255_RequiredUserIdCardset.cs" />
-    <Compile Include="Migrations\201907300841255_RequiredUserIdCardset.Designer.cs">
-      <DependentUpon>201907300841255_RequiredUserIdCardset.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907300847035_FlashcardModelAnnotation.cs" />
-    <Compile Include="Migrations\201907300847035_FlashcardModelAnnotation.Designer.cs">
-      <DependentUpon>201907300847035_FlashcardModelAnnotation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907310756437_parentCardsetId.cs" />
-    <Compile Include="Migrations\201907310756437_parentCardsetId.Designer.cs">
-      <DependentUpon>201907310756437_parentCardsetId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907310823340_CardsetICollection.cs" />
-    <Compile Include="Migrations\201907310823340_CardsetICollection.Designer.cs">
-      <DependentUpon>201907310823340_CardsetICollection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907310844179_NullableParentCardsetId.cs" />
-    <Compile Include="Migrations\201907310844179_NullableParentCardsetId.Designer.cs">
-      <DependentUpon>201907310844179_NullableParentCardsetId.cs</DependentUpon>
+    <Compile Include="Migrations\201908020811480_Initial.cs" />
+    <Compile Include="Migrations\201908020811480_Initial.Designer.cs">
+      <DependentUpon>201908020811480_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -372,29 +344,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907290804158_Initial.resx">
-      <DependentUpon>201907290804158_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907300820434_Model data annotations.resx">
-      <DependentUpon>201907300820434_Model data annotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907300835396_UserIdrequiredremoved.resx">
-      <DependentUpon>201907300835396_UserIdrequiredremoved.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907300841255_RequiredUserIdCardset.resx">
-      <DependentUpon>201907300841255_RequiredUserIdCardset.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907300847035_FlashcardModelAnnotation.resx">
-      <DependentUpon>201907300847035_FlashcardModelAnnotation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907310756437_parentCardsetId.resx">
-      <DependentUpon>201907310756437_parentCardsetId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907310823340_CardsetICollection.resx">
-      <DependentUpon>201907310823340_CardsetICollection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907310844179_NullableParentCardsetId.resx">
-      <DependentUpon>201907310844179_NullableParentCardsetId.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908020811480_Initial.resx">
+      <DependentUpon>201908020811480_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
