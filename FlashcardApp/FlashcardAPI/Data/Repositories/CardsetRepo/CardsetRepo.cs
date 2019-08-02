@@ -23,16 +23,29 @@ namespace FlashcardAPI.Data.Repositories.CardsetRepo
             _context.SaveChanges();
         }
 
-        public bool DeleteCardset(int cardsetId)
+        public async Task<bool> DeleteCardset(int cardsetId)
         {
             var cardsetToRemove = _context.Cardsets.SingleOrDefault(c => c.Id == cardsetId);
             if (cardsetToRemove == null)
             {
                 return false;
             }
+
+            await CascadeDeleteCardset(cardsetToRemove.Id);
+
             _context.Cardsets.Remove(cardsetToRemove);
             _context.SaveChanges();
             return true;
+        }
+
+        public async Task CascadeDeleteCardset(int cardsetId)
+        {
+            var children = await _context.Cardsets.Where(c => c.ParentCardsetId == cardsetId).ToListAsync();
+            foreach (var child in children)
+            {
+                await CascadeDeleteCardset(child.Id);
+                _context.Cardsets.Remove(child);
+            }
         }
 
         public async Task<Cardset> GetCardset(int cardsetId)

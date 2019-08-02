@@ -7,9 +7,10 @@ namespace FlashcardAPI.Data.Repositories.CardsetRepo
     public interface ICardsetRepo
     {
         void AddCardset(Cardset cardset);
-        bool DeleteCardset(int cardsetId);
+        Task<bool> DeleteCardset(int cardsetId);
         Task<Cardset> GetCardset(int cardsetId);
         Task<IEnumerable<Cardset>> GetCardsets(string userId);
+        Task CascadeDeleteCardset(int cardsetId);
         //TODO - Update methods
     }
 }

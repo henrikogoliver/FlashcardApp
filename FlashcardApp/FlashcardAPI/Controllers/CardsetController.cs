@@ -91,14 +91,14 @@ namespace FlashcardAPI.Controllers
 
         [HttpDelete]
         [Route("{cardsetId=0}")]
-        public IHttpActionResult DeleteFlashcard(int cardsetId)
+        public async Task<IHttpActionResult> DeleteCardset(int cardsetId)
         {
             if (cardsetId == 0)
             {
                 return BadRequest("Not a valid cardsetId");
             }
 
-            var cardsetRemoved = _cardsetRepo.DeleteCardset(cardsetId);
+            var cardsetRemoved = await _cardsetRepo.DeleteCardset(cardsetId);
 
             if (cardsetRemoved)
             {
