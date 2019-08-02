@@ -12,7 +12,7 @@ namespace FlashcardApp.API.Models
         public ICollection<Flashcard> Flashcards { get; set; }
         [Required]
         public string UserId { get; set; }
+        [ForeignKey("Id")]
         public int? ParentCardsetId { get; set; }
-        public Cardset ParentCardset { get; set; }
     }
 }

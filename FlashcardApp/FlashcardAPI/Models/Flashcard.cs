@@ -7,7 +7,6 @@ namespace FlashcardApp.API.Models
         public int Id { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
-        public int CurrentStatus { get; set; }
         [Required]
         public int CardsetId { get; set; }
         public Cardset Cardset { get; set; }
