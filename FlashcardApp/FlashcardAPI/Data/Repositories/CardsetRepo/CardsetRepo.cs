@@ -59,5 +59,10 @@ namespace FlashcardAPI.Data.Repositories.CardsetRepo
             var cardSets = await _context.Cardsets.Where(c => c.UserId == userId).ToListAsync();
             return cardSets;
         }
+
+        public async Task<bool> CardsetExists(int cardsetId)
+        {
+            return await _context.Cardsets.AnyAsync(c => c.Id == cardsetId);
+        }
     }
 }

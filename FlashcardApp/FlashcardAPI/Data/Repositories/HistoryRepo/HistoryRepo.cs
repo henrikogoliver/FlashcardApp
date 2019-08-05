@@ -24,10 +24,22 @@ namespace FlashcardAPI.Data.Repositories.HistoryRepo
             _context.SaveChanges();
         }
 
+        public void AddHistories(ICollection<History> histories)
+        {
+            _context.Histories.AddRange(histories);
+            _context.SaveChanges();
+        }
+
         public async Task<IEnumerable<History>> GetHistory(int cardSetId)
         {
             var historyEntries = await _context.Histories.Include(h => h.Flashcard.CardsetId == cardSetId).ToListAsync();
             return historyEntries;
+        }
+
+        public async Task<History> GetHistoryForFlashcard(int flashcardId)
+        {
+            var history = await _context.Histories.Include(h => h.Flashcard).Where(h => h.FlashCardId == flashcardId).SingleOrDefaultAsync();
+            return history;
         }
     }
 }

@@ -63,7 +63,7 @@ namespace FlashcardAPI.Controllers
 
         [HttpPost]
         [Route]
-        public HttpResponseMessage PostCardset([FromBody] Cardset cardsetToAdd)
+        public async Task<HttpResponseMessage> PostCardset([FromBody] Cardset cardsetToAdd)
         {
             var userId = User.Identity.GetUserId();
 
@@ -76,6 +76,15 @@ namespace FlashcardAPI.Controllers
                 cardsetToAdd.UserId = userId;
             }
 
+            if (cardsetToAdd.ParentCardsetId.HasValue)
+            {
+                if (!await _cardsetRepo.CardsetExists((int)cardsetToAdd.ParentCardsetId))
+                {
+                    var errorMessage = new HttpResponseMessage(HttpStatusCode.BadRequest);
+                    errorMessage.Content = new StringContent("Parent cardset does not exist");
+                    return errorMessage;
+                }
+            }
 
             ModelState.Remove("cardsetToAdd.UserId");
 

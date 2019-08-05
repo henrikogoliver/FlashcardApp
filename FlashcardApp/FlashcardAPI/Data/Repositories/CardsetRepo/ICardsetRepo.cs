@@ -11,6 +11,7 @@ namespace FlashcardAPI.Data.Repositories.CardsetRepo
         Task<Cardset> GetCardset(int cardsetId);
         Task<IEnumerable<Cardset>> GetCardsets(string userId);
         Task CascadeDeleteCardset(int cardsetId);
+        Task<bool> CardsetExists(int cardsetId); 
         //TODO - Update methods
     }
 }

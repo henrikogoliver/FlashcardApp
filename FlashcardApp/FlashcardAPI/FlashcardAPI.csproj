@@ -230,7 +230,6 @@
     <Compile Include="Controllers\FlashcardsController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\FlashcardDbContext.cs" />
     <Compile Include="Data\Repositories\CardsetRepo\CardsetRepo.cs" />
     <Compile Include="Data\Repositories\CardsetRepo\ICardsetRepo.cs" />
